@@ -11,5 +11,5 @@ Download the repository.
 Then, cd into that directory and execute:
 
 ```console
-pip install -e wmiys_common
+foo@bar:~$ pip install -e wmiys_common
 ```
