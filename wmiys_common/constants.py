@@ -1,0 +1,1 @@
+MY_SHARED_CONSTANT = 'testing'
