@@ -3,5 +3,6 @@ from . import utilities as utilities
 
 # constants
 from . import constants as constants
-from .constants import DevelopmentUrls as DevelopmentUrls
-from .constants import ProductionUrls as ProductionUrls
+
+# config pairs
+from . import config_pairs as config_pairs

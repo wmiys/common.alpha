@@ -1,12 +1,10 @@
-from enum import Enum
+"""
+************************************************************************************
+This module contains shared symbolic constants used throughout the codebase.
+None of the values of these constants should EVER be modified in the code.
+***************************************************************************************
+"""
 
-class DevelopmentUrls(str, Enum):
-    API       = 'http://10.0.0.82:5000'
-    FRONT_END = 'http://10.0.0.82:8000'
+VPS_IP_ADDRESS = '104.225.208.116'
 
-class ProductionUrls(str, Enum):
-    API       = 'https://api.wmiys.com'
-    FRONT_END = 'https://wmiys.com'
-
-
-
+SECONDS_PER_HOUR = 3600
