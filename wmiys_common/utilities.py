@@ -1,8 +1,23 @@
+"""
+************************************************************************************
+Provides several common "utility" methods that are used by both the front-end and 
+the api code.
+
+This will probably get a little messy and unorganized, but fuck it. I was duplicating
+these functions in both applications, so why not make a central respository for them.
+***************************************************************************************
+"""
+
+from __future__ import annotations
 import json
 import uuid
 from datetime import datetime
 
-SECONDS_PER_HOUR = 3600
+import flask
+
+from . import constants
+
+
 
 #------------------------------------------------------
 # return the data from the specified json file
@@ -15,7 +30,7 @@ def readJsonFile(file_name_path: str) -> dict:
 # ------------------------------------------------------
 # Returns a UUID
 #-------------------------------------------------------
-def getUUID(as_string: bool=True):
+def getUUID(as_string: bool=True) -> str | uuid.UUID:
     new_uuid = uuid.uuid4()
     
     if as_string == True:
@@ -63,20 +78,41 @@ def setPropertyValuesFromDict(new_property_values: dict, the_object):
         else:
             setattr(the_object, key, None)
         
-    
+#------------------------------------------------------
+# Try to parse an int
+#------------------------------------------------------
 def intTryParse(value):
     try:
         return int(value), True
     except ValueError:
         return value, False
 
-
-def getDurationHours(date_start: datetime, date_end: datetime):
+#------------------------------------------------------
+# Get the number of hours between the given start/end times.
+#------------------------------------------------------
+def getDurationHours(date_start: datetime, date_end: datetime) -> int:
     then = date_start        
     now  = date_end                             # Now
     duration = now - then                         # For build-in functions
     duration_in_s = duration.total_seconds()      # Total number of seconds between dates
 
-    hours = divmod(duration_in_s, SECONDS_PER_HOUR)[0] 
+    hours = divmod(duration_in_s, constants.SECONDS_PER_HOUR)[0] 
 
     return hours
+
+
+#------------------------------------------------------
+# Checks whether or not this is production enviornment.
+#
+# Returns a bool:
+#   true: this is running on the VPS
+#   false: not running on the vps
+#------------------------------------------------------
+def isProductionEnv() -> bool:
+    server_ip, server_port = flask.request.server
+
+    if server_ip == constants.VPS_IP_ADDRESS:
+        return True
+    else:
+        return False
+
