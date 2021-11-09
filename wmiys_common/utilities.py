@@ -116,3 +116,11 @@ def isProductionEnv() -> bool:
     else:
         return False
 
+
+#------------------------------------------------------
+# Convert the given dollar amount to cents.
+#
+# Returns an int: the number of cents in the dollar amount.
+#------------------------------------------------------
+def dollarsToCents(dollars: float) -> int:
+    return round(dollars * 100)    
