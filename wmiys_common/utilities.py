@@ -92,14 +92,22 @@ def intTryParse(value):
 #------------------------------------------------------
 def getDurationHours(date_start: datetime, date_end: datetime) -> int:
     then = date_start        
-    now  = date_end                             # Now
-    duration = now - then                         # For build-in functions
-    duration_in_s = duration.total_seconds()      # Total number of seconds between dates
+    now  = date_end                                 # Now
+    duration = now - then                           # For build-in functions
+    duration_in_s = duration.total_seconds()        # Total number of seconds between dates
 
-    hours = divmod(duration_in_s, constants.SECONDS_PER_HOUR)[0] 
+    return divmod(duration_in_s, constants.SECONDS_PER.HOUR)[0] 
 
-    return hours
+#------------------------------------------------------
+# Get the number of minutes between the given start/end times.
+#------------------------------------------------------
+def getDurationMinutes(date_start: datetime, date_end: datetime) -> int:
+    then = date_start        
+    now  = date_end                                 # Now
+    duration = now - then                           # For build-in functions
+    duration_in_s = duration.total_seconds()        # Total number of seconds between dates
 
+    return abs(round(divmod(duration_in_s, constants.SECONDS_PER.MINUTE)[0]))
 
 #------------------------------------------------------
 # Checks whether or not this is production enviornment.
