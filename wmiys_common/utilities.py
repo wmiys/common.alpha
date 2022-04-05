@@ -10,6 +10,7 @@ these functions in both applications, so why not make a central respository for 
 
 from __future__ import annotations
 import json
+import flask.json as fjson
 import uuid
 from datetime import datetime
 
@@ -51,6 +52,21 @@ def printWithSpaces(output='', num_spaces: int = 20):
 #-------------------------------------------------------
 def lineBreak(num_lines: int=1):
     print("\n" * num_lines)
+
+# ------------------------------------------------------
+# Print to console the json formatted object
+# ------------------------------------------------------
+def dumpJson(output):
+    try:
+        serialized_output = fjson.dumps(output, indent=4)
+    except Exception as e:
+        lineBreak(1)
+        print(e)
+        lineBreak(1)
+
+        serialized_output = output
+    finally:
+        print(serialized_output)
 
 # ------------------------------------------------------
 # Checks if any of the fields contained in the dict are valid properties of the given object

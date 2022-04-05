@@ -24,5 +24,5 @@ ConfigPair = namedtuple('ConfigPair', ['DEV', 'PRODUCTION'])
 
 ApiUrls      = ConfigPair('http://10.0.0.82:5000', 'https://api.wmiys.com')
 FrontEndUrls = ConfigPair('http://10.0.0.82:8000', 'https://wmiys.com')
-DbHosts      = ConfigPair('104.225.208.116',       'localhost')
+DbHosts      = ConfigPair('104.225.208.163',       'localhost')
 
