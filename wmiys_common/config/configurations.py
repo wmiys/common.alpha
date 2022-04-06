@@ -1,26 +1,12 @@
 """
+**********************************************************************************************
 
-This file contains all the configuration files that the application uses.
+Development and production configuration classes
 
+**********************************************************************************************
 """
 
-
-
-#------------------------------------------------------
-# The base config class
-#------------------------------------------------------
-class Base:
-    # built in flask keys
-    JSON_SORT_KEYS              = False   # don't sort the json keys
-    JSONIFY_PRETTYPRINT_REGULAR = False   # print the json pretty
-    SECRET_KEY = b'_5#y2L"F4Q8z\n\xec]/'
-    
-    # custom keys
-    URL_API = 'https://api.wmiys.com'
-    URL_GUI = 'https://wmiys.com'
-    DB_NAME = 'wmiys'
-    DB_HOST = 'localhost'
-
+from .base_configuration import Base
 
 #------------------------------------------------------
 # The production config is the default, 
@@ -29,13 +15,16 @@ class Base:
 class Production(Base):
     pass
 
+
 #------------------------------------------------------
 # Provide any overrides needed for development
 #------------------------------------------------------
 class Dev(Base):
+    SECRET_KEY = b'AMA5g6/DF74wRK2fdLcESMA2e2NEwjNJ0H659elUds0='
+
     URL_API = 'http://10.0.0.82:5000'
     URL_GUI = 'http://10.0.0.82:8000'
     DB_NAME = 'wmiys_dev'
-    DB_HOST = '104.225.208.163'
+    DB_HOST = Base.DB_HOST_IP
  
 
