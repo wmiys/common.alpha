@@ -20,7 +20,8 @@ class Production(Base):
 # Provide any overrides needed for development
 #------------------------------------------------------
 class Dev(Base):
-    SECRET_KEY = b'AMA5g6/DF74wRK2fdLcESMA2e2NEwjNJ0H659elUds0='
+    SECRET_KEY_API                  = b'UH5vjJaP3wCG9v9sfAgQ6nXrN5xQ5DxgBZQvaMLJa8SzpswmUhYQsVqQ+ItummAdeT37k85JOP0jmW5jqO7Zxw=='
+    SECRET_KEY_GUI                  = b'SEXn773P7GF7I4kbaD/RUNNh86jg7R6SoB/WJCjxjfIvVuzsIOJMAmU4CNXKe6qRbRIajG2iGzBZYZ/hQHQmAA=='
 
     URL_API = 'http://10.0.0.82:5000'
     URL_GUI = 'http://10.0.0.82:8000'
