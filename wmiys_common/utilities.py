@@ -148,3 +148,12 @@ def isProductionEnv() -> bool:
 #------------------------------------------------------
 def dollarsToCents(dollars: float) -> int:
     return round(dollars * 100)    
+
+#------------------------------------------------------
+# Checks if the specified number is in the range
+#------------------------------------------------------
+def inRange(number, minimum, maximum) -> bool:
+    if minimum <= number <= maximum:
+        return True
+    else:
+        return False
