@@ -1,15 +1,4 @@
-# wmiys_common
+# Deprecated
 
-Shared python libraries used by both front-end and API
+This repository was deprecated on 4/26/2023. Future development will occur on the new repo: https://github.com/wmiys/wmiys.
 
-
-
-## Installation
-
-Download the repository.
-
-Then, cd into that directory and execute:
-
-```shell
-pip install -e wmiys_common
-```
